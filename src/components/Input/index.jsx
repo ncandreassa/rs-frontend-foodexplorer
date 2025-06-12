@@ -1,11 +1,13 @@
-import { Container } from './styles'
+import { Container, InputWrapper } from './styles'
 
 export function Input({ icon: Icon, label, ...rest }) {
   return (
     <Container>
-      {Icon && <Icon size={20} />}
-      <label>{label}</label>
-      <input {...rest} />
+      {label && <label>{label}</label>}
+      <InputWrapper>
+        {Icon && <Icon size={20} />}
+        <input {...rest} />
+      </InputWrapper>
     </Container>
   )
 }

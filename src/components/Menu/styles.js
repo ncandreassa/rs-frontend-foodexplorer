@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   flex: 1;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.DARK_400};
-`
+`;
 
 export const Header = styled.div`
   width: 100%;
@@ -12,9 +12,8 @@ export const Header = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   display: flex;
   padding: 56px 24px;
- color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-`
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+`;
 
 export const Div = styled.div`
   text-align: center;
@@ -23,9 +22,12 @@ export const Div = styled.div`
   > img {
     height: 16px;
   }
-
 `;
 
 export const Content = styled.div`
+  padding: 28px;
+`;
 
-`
+export const ButtonWrapper = styled.div`
+  margin-top: 36px;
+`;

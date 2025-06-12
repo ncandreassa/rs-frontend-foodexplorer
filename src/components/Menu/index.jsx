@@ -1,5 +1,8 @@
-import { Container, Content, Header, Div } from './styles'
+import { Container, Content, Header, Div, ButtonWrapper } from './styles'
 import Close from '../../assets/icons/Close.png'
+import { FiSearch } from 'react-icons/fi'
+import { Input } from '../Input'
+import { ButtonText } from '../ButtonText'
 
 export function Menu({ onClose }) {
     return (
@@ -11,7 +14,15 @@ export function Menu({ onClose }) {
                 <p>Menu</p>
             </Header>
             <Content>
-                {/* conteúdo do menu */}
+                <Input
+                    icon={FiSearch}
+                    placeholder="Busque por pratos ou ingredientes"
+                    type="text"
+                />
+                <ButtonWrapper>
+                    <ButtonText title="Sair" underline/>
+                </ButtonWrapper>
+                
             </Content>
         </Container>
     )

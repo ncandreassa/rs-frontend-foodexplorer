@@ -2,36 +2,40 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-
-
-  > input {
-    height: 48px;
-    width: 100%;
-
-    margin-top: 8px;
-
-    padding: 16px 14px;
-    color: ${({ theme }) => theme.COLORS.LIGHT_500};
-    background: ${({ theme }) => theme.COLORS.DARK_900};
-    border: 0;
-    border-radius: 8px;
-
-    font-size: 16px;
-
-
-    &:placeholder {
-      color: ${({ theme }) => theme.COLORS.GRAY_300} 
-    }
-  }
 
   > label {
     font-size: 16px;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
+`
+
+export const InputWrapper = styled.div`
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+
+  background: ${({ theme }) => theme.COLORS.DARK_900};
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 48px;
 
   > svg {
-    margin-left: 16px;
+    margin-right: 12px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    flex-shrink: 0;
+  }
+
+  > input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    font-size: 16px;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+    }
+
+    outline: none;
   }
 `
