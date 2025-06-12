@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 86%;
+  width: 94%;
   height: 120px;
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
   margin-top: 52px;
-  margin-left: 36px;
+  margin-left: 20px;
   position: relative;
   border-radius: 3px;
 

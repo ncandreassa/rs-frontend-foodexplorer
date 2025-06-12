@@ -8,7 +8,6 @@ export function Layout({ children }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev)
-
     return (
         <Container>
             {isMenuOpen ? (
@@ -16,9 +15,13 @@ export function Layout({ children }) {
             ) : (
                 <Header setIsMenuOpen={toggleMenu} />
             )}
-            <Main>
-                {children}
-            </Main>
+
+            {!isMenuOpen && (
+                <Main>
+                    {children}
+                </Main>
+            )}
+
             <Footer />
         </Container>
     )
