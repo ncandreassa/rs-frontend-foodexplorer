@@ -21,10 +21,6 @@ export default {
       DARK_900: "#0D1D25",
       DARK_1000: "#192227",
   
-      // Gradients
-      GRADIENT_100: "#00111A",
-      GRADIENT_200: "#001119",
-  
       // Tomato Tints
       TOMATO_100: "#750310",
       TOMATO_200: "#92000E",
