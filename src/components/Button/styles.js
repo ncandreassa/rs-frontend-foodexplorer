@@ -1,18 +1,27 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
-  width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+  width: ${({ $width = '100%' }) => $width};
+  height: ${({ $height = '48px' }) => $height};
+  font-size: ${({ $fontSize = '14px' }) => $fontSize};
+  margin-top: ${({ $marginTop = '16px' }) => $marginTop};
+
+  background-color: ${({ theme, $isDisabled }) =>
+    $isDisabled ? theme.COLORS.TOMATO_400 : theme.COLORS.TOMATO_100};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-  height: 48px;
   border: 0;
   padding: 0 16px;
-  margin-top: 16px;
   border-radius: 5px;
   font-weight: 500;
 
-  &:disabled {
-    opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
+  svg {
+    flex-shrink: 0;
   }
 `
