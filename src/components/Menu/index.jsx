@@ -5,6 +5,9 @@ import { Input } from '../Input'
 import { ButtonText } from '../ButtonText'
 
 export function Menu({ onClose }) {
+
+    const userType = "user"
+    
     return (
         <Container>
             <Header>
@@ -19,8 +22,11 @@ export function Menu({ onClose }) {
                     placeholder="Busque por pratos ou ingredientes"
                     type="text"
                 />
-                <ButtonWrapper>
-                    <ButtonText title="Sair" underline/>
+             <ButtonWrapper>
+                    {userType === "admin" && (
+                        <ButtonText title="Novo prato" underline />
+                    )}
+                    <ButtonText title="Sair" underline />
                 </ButtonWrapper>
                 
             </Content>
