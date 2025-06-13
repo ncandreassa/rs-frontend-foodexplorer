@@ -15,6 +15,8 @@ export const Container = styled.div`
   gap: 12px;
 
   justify-content: ${({ $isUser }) => ($isUser ? 'flex-start' : 'center')};
+
+  cursor: pointer;
 `
 
 export const Icon = styled.button`
@@ -41,23 +43,4 @@ export const Title = styled.h3`
 export const Price = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.COLORS.CAKE_200};
-`
-
-export const Controls = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  > button {
-    background: none;
-    border: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    font-size: 16px;
-    cursor: pointer;
-  }
-`
-
-export const Quantity = styled.p`
-  font-size: 16px;
-  color: ${({ theme }) => theme.COLORS.LIGHT_100};
 `

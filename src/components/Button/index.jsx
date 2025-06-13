@@ -1,6 +1,12 @@
 import { Container } from './styles'
 
-export function Button({ title, icon: Icon, disabled = false, ...rest }) {
+export function Button({
+  title,
+  icon: Icon,
+  image,
+  disabled = false,
+  ...rest
+}) {
   return (
     <Container
       type="button"
@@ -8,7 +14,8 @@ export function Button({ title, icon: Icon, disabled = false, ...rest }) {
       $isDisabled={disabled}
       {...rest}
     >
-      {Icon && <Icon size={20} />}
+      {image && <img src={image} alt="ícone do botão" className="button-image" />}
+      {!image && Icon && <Icon size={20} />}
       {title}
     </Container>
   )

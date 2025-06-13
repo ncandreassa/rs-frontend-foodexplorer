@@ -3,6 +3,7 @@ import { Container } from './styles'
 export function ButtonText({
   title,
   icon: Icon,
+  iconSize = 20,
   fontSize = '24px',
   fontWeight = '400',
   underline = false,
@@ -16,7 +17,7 @@ export function ButtonText({
       type="button"
       {...rest}
     >
-      {Icon && <Icon size={20} />}
+      {Icon && <Icon size={iconSize} />}
       {title}
     </Container>
   )

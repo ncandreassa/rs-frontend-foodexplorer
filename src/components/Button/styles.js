@@ -24,4 +24,10 @@ export const Container = styled.button`
   svg {
     flex-shrink: 0;
   }
+
+  .button-image {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
 `
