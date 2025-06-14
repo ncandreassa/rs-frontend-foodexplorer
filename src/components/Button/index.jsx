@@ -4,14 +4,14 @@ export function Button({
   title,
   icon: Icon,
   image,
-  disabled = false,
+  background,
   ...rest
 }) {
   return (
     <Container
       type="button"
-      disabled={disabled}
-      $isDisabled={disabled}
+      background={background}
+
       {...rest}
     >
       {image && <img src={image} alt="ícone do botão" className="button-image" />}

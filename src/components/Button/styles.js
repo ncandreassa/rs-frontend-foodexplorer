@@ -6,8 +6,8 @@ export const Container = styled.button`
   font-size: ${({ $fontSize = '14px' }) => $fontSize};
   margin-top: ${({ $marginTop = '16px' }) => $marginTop};
 
-  background-color: ${({ theme, $isDisabled }) =>
-    $isDisabled ? theme.COLORS.TOMATO_400 : theme.COLORS.TOMATO_100};
+  background-color: ${({ theme, background }) =>
+    background || theme.COLORS.TOMATO_100};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   border: 0;
@@ -19,7 +19,7 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: pointer;
 
   svg {
     flex-shrink: 0;

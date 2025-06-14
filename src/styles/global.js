@@ -21,7 +21,7 @@ export default createGlobalStyle`
     outline: none;
   }
 
-  input, textarea, p, span {
+  input, textarea, p, span, label {
     font-family: 'Roboto', serif;
     font-size: 16px;
     outline: none;

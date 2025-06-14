@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -7,14 +7,14 @@ export const Container = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
-`
+`;
 
 export const InputWrapper = styled.div`
   margin-top: 8px;
   display: flex;
   align-items: center;
 
-  background: ${({ theme }) => theme.COLORS.DARK_900};
+  background: ${({ theme, bg }) => bg || theme.COLORS.DARK_900};
   border-radius: 8px;
   padding: 0 14px;
   height: 48px;
@@ -38,4 +38,4 @@ export const InputWrapper = styled.div`
 
     outline: none;
   }
-`
+`;
