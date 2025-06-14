@@ -21,6 +21,23 @@ export const Div = styled.div`
   }
 `;
 
+export const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > img {
+    height: 26px;
+  }
+
+  > p {
+    color: ${({ theme }) => theme.COLORS.CAKE_200};
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+  }
+`;
+
 export const NotificationWrapper = styled.div`
   width: 100%;
   text-align: center;
