@@ -1,4 +1,4 @@
-import { Container, Form, Div } from './styles'
+import { Container, LogoWrapper, FormWrapper, Form } from './styles'
 import { Link } from 'react-router-dom'
 
 import { Input } from '../../components/Input'
@@ -6,32 +6,34 @@ import { Button } from '../../components/Button'
 import Logo from '../../assets/Logo.png'
 
 export function SignIn() {
-    return (
-        <Container>
+  return (
+    <Container>
 
-            <Div>
-                <img src={Logo} alt="Logo" />
-            </Div>
+      <LogoWrapper>
+        <img src={Logo} alt="Logo" />
+      </LogoWrapper>
 
-            <Form>
-                <Input
-                    label={"Email"}
-                    placeholder="Exemplo: exemplo@exemplo.com.br"
-                    type="text"
-                />
+      <FormWrapper>
+        <h1>Faça login</h1>
 
-                <Input
-                    label={"Senha"}
-                    placeholder="No mínimo 6 caracteres"
-                    type="text"
-                />
+        <Form>
+          <Input
+            label={"Email"}
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            type="text"
+          />
 
-                <Button title="Entrar" />
+          <Input
+            label={"Senha"}
+            placeholder="No mínimo 6 caracteres"
+            type="password"
+          />
 
-                <Link to="/register">Criar conta</Link>
+          <Button title="Entrar" />
+          <Link to="/register">Criar uma conta</Link>
+        </Form>
+      </FormWrapper>
 
-            </Form>
-
-        </Container>
-    )
+    </Container>
+  )
 }
