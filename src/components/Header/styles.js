@@ -7,6 +7,16 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 56px 24px;
+
+  @media (min-width: 768px) {
+    align-items: center;
+    padding: 0 123px;
+
+    > img {
+      height: 26px;
+      cursor: pointer;
+    }
+  }
 `;
 
 export const Div = styled.div`
@@ -36,6 +46,13 @@ export const LogoWrapper = styled.div`
     font-weight: 400;
     margin: 0;
   }
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+    align-items: end;
+  }
+
 `;
 
 export const NotificationWrapper = styled.div`
@@ -62,4 +79,27 @@ export const Badge = styled.span`
   align-items: center;
   justify-content: center;
   font-weight: bold;
+`;
+
+export const InputWrapper = styled.div`
+  width: 581px;
+`;
+
+export const Orders = styled.div`
+  width: 216px;
+  height: 48px;
+  background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+
+  > span {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;
