@@ -6,8 +6,8 @@ export function Select({ label }) {
             {label && <label>{label}</label>}
             <StyledSelect defaultValue="">
                 <option value="" disabled>Refeição</option>
-                <option value="refeicao">Prato Principal</option>
-                <option value="lazer">Bebidas</option>
+                <option value="refeicao">Sobremesa</option>
+                <option value="lazer">Bebida</option>
             </StyledSelect>
             <ChevronIcon />
         </Container>

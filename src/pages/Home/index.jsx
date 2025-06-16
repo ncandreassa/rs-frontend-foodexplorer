@@ -1,76 +1,28 @@
-import {
-    Container,
-    Main,
-    Slider,
-    CategoryWrapper,
-    BannerWrapper
-  } from './styles'
-  
-  import { Banner } from '../../components/Banner'
-  import { DishCard } from '../../components/DishCard'
-  import { useKeenSlider } from 'keen-slider/react'
-  
-  export function Home() {
-    const [sliderRef] = useKeenSlider({
-      mode: 'snap',
-      slides: { perView: 'auto', spacing: 16 }
-    })
-  
-    return (
-      <Container>
-        <Main>
-          <BannerWrapper>
-            <Banner />
-          </BannerWrapper>
-  
-          <CategoryWrapper>
-            <h1>Refeições</h1>
-            <Slider ref={sliderRef} className="keen-slider">
-              {[1, 2, 3].map(idx => (
-                <div key={idx} className="keen-slider__slide">
-                  <DishCard
-                    type="user"
-                    image="/salada.png"
-                    title="Salada Ravanello"
-                    price="R$ 49,97"
-                  />
-                </div>
-              ))}
-            </Slider>
-          </CategoryWrapper>
+import { Container, Main, BannerWrapper } from './styles'
+import { Banner } from '../../components/Banner'
+import { DishSlider } from '../../components/DishSlider'
 
-          <CategoryWrapper>
-            <h1>Pratos Principais</h1>
-            <Slider ref={sliderRef} className="keen-slider">
-              {[1, 2, 3].map(idx => (
-                <div key={idx} className="keen-slider__slide">
-                  <DishCard
-                    type="user"
-                    image="/salada.png"
-                    title="Salada Ravanello"
-                    price="R$ 49,97"
-                  />
-                </div>
-              ))}
-            </Slider>
-          </CategoryWrapper>
+export function Home() {
+  const sampleDishes = [
+    { id: 1, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+    { id: 2, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+    { id: 3, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+    { id: 4, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+    { id: 5, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+    { id: 6, image: '/salada.png', title: 'Salada Ravanello', price: 'R$ 49,97' },
+  ]
 
-          <CategoryWrapper>
-            <h1>Bebidas</h1>
-            <Slider ref={sliderRef} className="keen-slider">
-              {[1, 2, 3].map(idx => (
-                <div key={idx} className="keen-slider__slide">
-                  <DishCard
-                    type="user"
-                    image="/salada.png"
-                    title="Salada Ravanello"
-                    price="R$ 49,97"
-                  />
-                </div>
-              ))}
-            </Slider>
-          </CategoryWrapper>
-        </Main>
-      </Container>
-    )
-  }
+  return (
+    <Container>
+      <Main>
+        <BannerWrapper>
+          <Banner />
+        </BannerWrapper>
+
+        <DishSlider title="Refeições" items={sampleDishes} />
+        <DishSlider title="Sobremesas" items={sampleDishes} />
+        <DishSlider title="Bebidas" items={sampleDishes} />
+      </Main>
+    </Container>
+  )
+}
