@@ -3,40 +3,38 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-
-  @media (min-width: 768px) {
-    padding: 40px 122px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    padding: 4rem 12.2rem;
   }
-  
 `;
 
 export const Form = styled.form`
-  margin: 12px 32px 32px;
+  margin: 1.2rem 3.2rem 3.2rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 
   > h1 {
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     font-weight: 400;
-    margin-bottom: 24px;
+    margin-bottom: 2.4rem;
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     margin: 2rem auto;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 24px;
+    padding: 2.4rem;
     justify-content: space-between;
   }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 3.2rem;
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     width: 100%;
     justify-content: flex-end;
   }

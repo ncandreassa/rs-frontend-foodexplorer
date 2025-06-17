@@ -1,6 +1,6 @@
-import { Container, TextContent } from './styles'
-import BannerMobile from '../../assets/Banner.png'
-import BannerDesktop from '../../assets/BannerDesktop.png'
+import { Container, TextContent } from './styles';
+import BannerMobile from '../../assets/Banner.png';
+import BannerDesktop from '../../assets/BannerDesktop.png';
 
 export function Banner() {
     return (
@@ -12,5 +12,5 @@ export function Banner() {
                 <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
             </TextContent>
         </Container>
-    )
+    );
 }

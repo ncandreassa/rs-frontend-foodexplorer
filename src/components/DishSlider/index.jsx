@@ -6,10 +6,10 @@ import { SliderWrapper } from './styles'
 
 export function DishSlider({ title, items }) {
     const isDesktop = useMediaQuery({ minWidth: 768 })
-    const gap = isDesktop ? '28px' : '16px'
+    const gap = isDesktop ? '2.8rem' : '1.6rem'
 
     return (
-        <SliderWrapper isDesktop={isDesktop}>
+        <SliderWrapper>
             <h1>{title}</h1>
 
             <div className="slider-container">
@@ -22,7 +22,7 @@ export function DishSlider({ title, items }) {
                         perPage: isDesktop ? 4 : 2,
                         perMove: 1,
                         gap,
-                        arrows: isDesktop,      
+                        arrows: isDesktop,
                         pagination: isDesktop,
                         autoWidth: true,
                         classes: {

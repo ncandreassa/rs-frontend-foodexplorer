@@ -3,33 +3,32 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
   border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
-  border-radius: 8px;
-  padding: 16px;
-  width: 210px;
-  height: 292px;
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+  width: 21rem;
+  height: 29.2rem;
   position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
 
-  justify-content: ${({ $isUser }) => ($isUser ? "flex-start" : "center")};
-
+  justify-content: ${({ isUser }) => (isUser ? "flex-start" : "center")};
   cursor: pointer;
 
-  @media (min-width: 768px) {
-    width: 304px;
-    height: 462px;
-    gap: 16px;
-    padding: 24px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    width: 30.4rem;
+    height: 46.2rem;
+    gap: 1.6rem;
+    padding: 2.4rem;
   }
 `;
 
 export const Icon = styled.button`
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 1.2rem;
+  right: 1.2rem;
   background: none;
   border: none;
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
@@ -37,31 +36,31 @@ export const Icon = styled.button`
 `;
 
 export const Image = styled.img`
-  width: 88px;
-  height: 88px;
+  width: 8.8rem;
+  height: 8.8rem;
 
-  @media (min-width: 768px) {
-    width: 176px;
-    height: 176px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    width: 17.6rem;
+    height: 17.6rem;
   }
 `;
 
 export const Title = styled.h3`
-  font-size: 14px;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   text-align: center;
 
-  @media (min-width: 768px) {
-    font-size: 24px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    font-size: 2.4rem;
   }
 `;
 
 export const Description = styled.p`
   display: none;
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     display: block;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: "Roboto", sans-serif;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     text-align: center;
@@ -70,11 +69,11 @@ export const Description = styled.p`
 `;
 
 export const Price = styled.p`
-  font-size: 16px;
+  font-size: 1.6rem;
   color: ${({ theme }) => theme.COLORS.CAKE_200};
 
-  @media (min-width: 768px) {
-    font-size: 32px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    font-size: 3.2rem;
   }
 `;
 
@@ -84,8 +83,8 @@ export const BottomContent = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     flex-direction: row;
-    gap: 16px;
+    gap: 1.6rem;
   }
 `;

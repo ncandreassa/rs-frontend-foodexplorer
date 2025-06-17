@@ -54,16 +54,16 @@ export function DishDetail() {
                                     quantity={1}
                                     onIncrement={() => { }}
                                     onDecrement={() => { }}
-                                    fontSize="22px"
+                                    fontSize="2.2rem"
                                     fontWeight="700"
                                     iconSize={28}
                                 />
                                 <Button
                                     title="pedir ∙ R$ 25,00"
-                                    $width={isDesktop ? "162px" : "200px"}
-                                    $height={isDesktop ? "48px" : "42px"}
-                                    $marginTop="0px"
-                                    $fontSize={isDesktop ? "14px" : "10px"}
+                                    width={isDesktop ? "16.2rem" : "20rem"}
+                                    height={isDesktop ? "4.8rem" : "4.2rem"}
+                                    marginTop="0px"
+                                    fontSize={isDesktop ? "1.4rem" : "1rem"}
                                     onClick={(e) => e.stopPropagation()}
                                     image={isDesktop ? undefined : Receipt}
                                 />
@@ -73,10 +73,10 @@ export function DishDetail() {
                         {userType === "admin" && (
                             <Button
                                 title="Editar prato"
-                                $width={isDesktop ? "162px" : "200px"}
-                                $height={isDesktop ? "48px" : "42px"}
-                                $marginTop="0px"
-                                $fontSize={isDesktop ? "14px" : "10px"}
+                                width={isDesktop ? "16.2rem" : "20rem"}
+                                height={isDesktop ? "4.8rem" : "4.2rem"}
+                                marginTop="0px"
+                                fontSize={isDesktop ? "1.4rem" : "1rem"}
                                 onClick={() => navigate("/edit-dish")}
                             />
                         )}

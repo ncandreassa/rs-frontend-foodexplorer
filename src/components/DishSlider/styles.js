@@ -1,17 +1,17 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const SliderWrapper = styled.div`
-  margin-top: 24px;
+  margin-top: 2.4rem;
   position: relative;
 
   > h1 {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
 
-    @media (min-width: 768px) {
-      font-size: 32px;
+    @media ${({ theme }) => theme.MEDIA.sm} {
+      font-size: 3.2rem;
     }
   }
 
@@ -29,16 +29,16 @@ export const SliderWrapper = styled.div`
     background: transparent;
     border: none;
     color: white;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 2rem;
     transition: opacity 0.3s;
   }
 
   .splide__arrow svg {
     fill: white;
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
   }
 
   .splide__arrow--prev {
@@ -50,15 +50,15 @@ export const SliderWrapper = styled.div`
   }
 
   .splide__pagination {
-    margin-top: 24px;
+    margin-top: 2.4rem;
     position: relative;
     z-index: 5;
   }
 
-  @media (max-width: 767px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     .splide__arrow,
     .splide__pagination {
       display: none !important;
     }
   }
-`
+`;

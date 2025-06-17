@@ -1,15 +1,15 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
   justify-content: center;
+  gap: 1.6rem;
 
   .quantity {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1.2rem;
 
     button {
       background: none;
@@ -19,10 +19,9 @@ export const Container = styled.div`
     }
 
     span {
-      font-size: ${({ $fontSize }) => $fontSize};
-      font-weight: ${({ $fontWeight }) => $fontWeight};
+      font-size: ${({ fontSize }) => fontSize};
+      font-weight: ${({ fontWeight }) => fontWeight};
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
   }
-
-`
+`;

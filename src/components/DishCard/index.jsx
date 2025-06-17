@@ -39,15 +39,15 @@ export function DishCard({ type = 'user', image, title, price }) {
             quantity={1}
             onIncrement={() => { }}
             onDecrement={() => { }}
-            fontSize={isDesktop ? '20px' : undefined}
-            iconSize={isDesktop ? '24px' : undefined}
+            fontSize={isDesktop ? '0.2rem' : undefined}
+            iconSize={isDesktop ? '2.4rem' : undefined}
           />
 
           <Button
             title="incluir"
-            $width={isDesktop ? '92px' : '132px'}
-            $height={isDesktop ? '48px' : '32px'}
-            $marginTop="0"
+            width={isDesktop ? '9.2rem' : '13.2rem'}
+            height={isDesktop ? '4.8rem' : '3.2rem'}
+            marginTop="0"
             onClick={(e) => e.stopPropagation()}
           />
         </BottomContent>

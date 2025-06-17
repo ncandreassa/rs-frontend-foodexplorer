@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: ${({ $width }) => $width || "100%"};
 
   > label {
-    font-size: 16px;
+    font-size: 1.6rem;  
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
 `;
@@ -16,19 +16,19 @@ export const StyledSelect = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  margin-top: 8px;
+  margin-top: 0.8rem;  
 
   width: 100%;
-  height: 48px;
+  height: 4.8rem; 
 
-  padding: 0 40px 0 12px;
+  padding: 0 4rem 0 1.2rem; 
   border: none;
-  border-radius: 8px;
+  border-radius: 0.8rem; 
 
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   color: ${({ theme }) => theme.COLORS.LIGHT_400};
 
-  font-size: 14px;
+  font-size: 1.4rem; 
   cursor: pointer;
 
   &:focus {
@@ -40,9 +40,9 @@ export const StyledSelect = styled.select`
 export const ChevronIcon = styled(FiChevronDown)`
   position: absolute;
   top: 70%;
-  right: 12px;
+  right: 1.2rem; 
   transform: translateY(-50%);
   pointer-events: none;
-  font-size: 20px;
+  font-size: 2rem; 
   color: ${({ theme }) => theme.COLORS.LIGHT_400};
 `;

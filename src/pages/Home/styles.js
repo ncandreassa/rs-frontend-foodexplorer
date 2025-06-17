@@ -3,20 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  @media (min-width: 768px) {
-    padding: 0 100px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    padding: 0 10rem; 
   }
 `;
 
 export const Main = styled.main`
-  padding: 16px;
+  padding: 1.6rem; 
 
-  @media (min-width: 768px) {
-    margin-bottom: 60px;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    margin-bottom: 6rem; 
   }
 `;
 
 export const BannerWrapper = styled.div`
-  margin-bottom: 62px;
+  margin-bottom: 6.2rem; 
 `;
-

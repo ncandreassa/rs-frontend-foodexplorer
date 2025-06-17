@@ -8,26 +8,26 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   width: 100%;
-  height: 114px;
+  height: 11.4rem;  
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   display: flex;
-  padding: 56px 24px;
+  padding: 5.6rem 2.4rem;  
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 `;
 
 export const Div = styled.div`
   text-align: center;
-  margin-right: 16px;
+  margin-right: 1.6rem; 
 
   > img {
-    height: 16px;
+    height: 1.6rem;  
   }
 `;
 
 export const Content = styled.div`
-  padding: 28px;
+  padding: 2.8rem; 
 `;
 
 export const ButtonWrapper = styled.div`
-  margin-top: 36px;
+  margin-top: 3.6rem; 
 `;

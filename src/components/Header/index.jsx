@@ -58,7 +58,7 @@ function DesktopHeader() {
           icon={FiSearch}
           placeholder="Busque por pratos ou ingredientes"
           type="text"
-          marginLeftSvg="100px"
+          marginLeftSvg="10rem"
         />
       </InputWrapper>
 

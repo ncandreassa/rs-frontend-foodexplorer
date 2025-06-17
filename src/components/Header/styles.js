@@ -1,60 +1,59 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.header`
   width: 100%;
-  height: 114px;
+  height: 11.4rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   display: flex;
   justify-content: space-between;
-  padding: 56px 24px;
+  padding: 5.6rem 2.4rem; 
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     align-items: center;
-    padding: 0 123px;
-
-    > img {
-      height: 26px;
-      cursor: pointer;
-    }
+    padding: 0 12.3rem; 
   }
-`;
+
+  > img {
+    height: 2.6rem; 
+    cursor: pointer;
+  }
+`
 
 export const Div = styled.div`
   text-align: center;
 
   > img {
-    height: 26px;
+    height: 2.6rem; 
   }
 
   &:first-of-type > img {
-    height: 16px;
+    height: 1.6rem; 
   }
-`;
+`
 
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem; 
   cursor: pointer;
 
   > img {
-    height: 26px;
+    height: 2.6rem;
   }
 
   > p {
     color: ${({ theme }) => theme.COLORS.CAKE_200};
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 400;
     margin: 0;
   }
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     flex-direction: column;
     gap: 0;
-    align-items: end;
+    align-items: flex-end;
   }
-
-`;
+`
 
 export const NotificationWrapper = styled.div`
   width: 100%;
@@ -62,45 +61,45 @@ export const NotificationWrapper = styled.div`
   position: relative;
 
   > img {
-    height: 26px;
+    height: 2.6rem;
   }
-`;
+`
 
 export const Badge = styled.span`
   position: absolute;
-  top: -6px;
-  right: calc(50% - 18px);
+  top: -0.6rem;
+  right: calc(50% - 1.8rem);
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
   color: white;
-  font-size: 12px;
+  font-size: 1.2rem;
   border-radius: 50%;
-  min-width: 18px;
-  height: 18px;
+  min-width: 1.8rem;
+  height: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-`;
+`
 
 export const InputWrapper = styled.div`
-  width: 581px;
-`;
+  width: 58.1rem;
+`
 
 export const Orders = styled.div`
-  width: 216px;
-  height: 48px;
+  width: 21.6rem;
+  height: 4.8rem;
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-  border-radius: 5px;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.8rem;
   cursor: pointer;
 
   > span {
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
     font-weight: 500;
   }
-`;
+`
