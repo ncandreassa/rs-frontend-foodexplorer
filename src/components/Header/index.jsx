@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { Container, Div, LogoWrapper, NotificationWrapper, Badge, InputWrapper, Orders } from './styles'
 import { FiSearch } from 'react-icons/fi'
@@ -9,6 +10,7 @@ import SignOut from '../../assets/icons/SignOut.svg'
 
 export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
   const userType = "user"
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -17,7 +19,7 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
       </Div>
 
       <Div>
-        <LogoWrapper>
+        <LogoWrapper onClick={() => navigate('/')}>
           <img src={Logo} alt="Logo" />
           {userType === "admin" && <p>admin</p>}
         </LogoWrapper>
@@ -36,10 +38,17 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
 function DesktopHeader() {
 
   const userType = "user"
+  const navigate = useNavigate()
+
+  function handleOrdersClick() {
+    if (userType === "admin") {
+      navigate("/dish-form/create")
+    }
+  }
 
   return (
     <Container>
-      <LogoWrapper>
+      <LogoWrapper onClick={() => navigate('/')}>
         <img src={Logo} alt="Logo" />
         {userType === 'admin' && <p>admin</p>}
       </LogoWrapper>
@@ -53,7 +62,7 @@ function DesktopHeader() {
         />
       </InputWrapper>
 
-      <Orders>
+      <Orders onClick={handleOrdersClick}>
         {userType !== "admin" && <img src={Receipt} alt="Receipt" />}
         <span>{userType === "admin" ? "Novo prato" : "Pedidos (0)"}</span>
       </Orders>

@@ -35,6 +35,7 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 
   > img {
     height: 26px;

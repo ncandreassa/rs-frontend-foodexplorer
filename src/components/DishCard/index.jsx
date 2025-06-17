@@ -10,11 +10,17 @@ export function DishCard({ type = 'user', image, title, price }) {
   const isUser = type === 'user'
   const navigate = useNavigate()
   const isDesktop = useMediaQuery({ minWidth: 768 })
-  
+
+  function handleIconClick(e) {
+    e.stopPropagation()
+    if (!isUser) {
+      navigate('/dish-form/edit')
+    }
+  }
 
   return (
     <Container $isUser={isUser} onClick={() => navigate('/dish')}>
-      <Icon onClick={(e) => e.stopPropagation()}>
+      <Icon onClick={handleIconClick}>
         {isUser ? <FiHeart size={20} /> : <FiEdit2 size={20} />}
       </Icon>
 
