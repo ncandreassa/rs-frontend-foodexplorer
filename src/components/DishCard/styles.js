@@ -82,9 +82,9 @@ export const BottomContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.6rem;
 
   @media ${({ theme }) => theme.MEDIA.sm} {
     flex-direction: row;
-    gap: 1.6rem;
   }
 `;

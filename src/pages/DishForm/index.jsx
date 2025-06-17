@@ -30,7 +30,7 @@ export function DishForm() {
                     icon={FiChevronLeft}
                     iconSize={34}
                     onClick={() => navigate(-1)}
-                    $fontWeight={isDesktop ? "700" : "400"}
+                    fontWeight={isDesktop ? "700" : "400"}
                 />
             
 
@@ -85,7 +85,7 @@ export function DishForm() {
                                 console.log('Excluir prato');
                             }}
 
-                            $width={isDesktop ? "13.4rem" : undefined}
+                            width={isDesktop ? "13.4rem" : undefined}
                         />
                         <Button
                             title="Salvar alterações"
@@ -94,7 +94,7 @@ export function DishForm() {
                                 // lógica para salvar alterações
                                 console.log('Salvar alterações');
                             }}
-                            $width={isDesktop ? "17.2rem" : undefined}
+                            width={isDesktop ? "17.2rem" : undefined}
                         />
                     </ButtonWrapper>
 
@@ -107,7 +107,7 @@ export function DishForm() {
                                 // lógica para criar prato
                                 console.log('Salvar prato');
                             }}
-                            $width={isDesktop ? "17.2rem" : undefined}
+                            width={isDesktop ? "17.2rem" : undefined}
                         />
                     </ButtonWrapper>
 

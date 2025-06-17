@@ -42,23 +42,16 @@ export const SliderWrapper = styled.div`
   }
 
   .splide__arrow--prev {
-    left: -3rem;
+    left: -6rem;
   }
 
   .splide__arrow--next {
-    right: -3rem;
+    right: -6rem;
   }
 
   .splide__pagination {
     margin-top: 2.4rem;
     position: relative;
     z-index: 5;
-  }
-
-  @media ${({ theme }) => theme.MEDIA.sm} {
-    .splide__arrow,
-    .splide__pagination {
-      display: none !important;
-    }
   }
 `;

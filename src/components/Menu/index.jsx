@@ -9,7 +9,7 @@ export function Menu({ onClose }) {
 
     const navigate = useNavigate()
 
-    const userType = "user"
+    const userType = "admin"
 
     function handleNewDish() {
         navigate('/dish-form/create')

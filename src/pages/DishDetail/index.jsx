@@ -20,15 +20,15 @@ export function DishDetail() {
 
     return (
         <Container>
-           
-                <ButtonText
-                    title="voltar"
-                    icon={FiChevronLeft}
-                    iconSize={34}
-                    onClick={() => navigate(-1)}
-                    $fontWeight={isDesktop ? "700" : "400"}
-                />
-           
+
+            <ButtonText
+                title="voltar"
+                icon={FiChevronLeft}
+                iconSize={34}
+                onClick={() => navigate(-1)}
+                $fontWeight={isDesktop ? "700" : "400"}
+            />
+
 
 
             <Content>
@@ -73,11 +73,11 @@ export function DishDetail() {
                         {userType === "admin" && (
                             <Button
                                 title="Editar prato"
-                                width={isDesktop ? "16.2rem" : "20rem"}
+                                width={isDesktop ? "16.2rem" : "31.6rem"}
                                 height={isDesktop ? "4.8rem" : "4.2rem"}
                                 marginTop="0px"
-                                fontSize={isDesktop ? "1.4rem" : "1rem"}
-                                onClick={() => navigate("/edit-dish")}
+                                fontSize={"1.4rem"}
+                                onClick={() => navigate('/dish-form/edit')}
                             />
                         )}
                     </ControlsButtonWrapper>
