@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive'
 import { Container, Form, ButtonWrapper } from './styles'
 import { InputFile } from '../../components/InputFile'
 import { FiUpload } from 'react-icons/fi'
@@ -18,17 +19,20 @@ export function DishForm() {
 
     const isEdit = mode === 'edit';
 
+    const isDesktop = useMediaQuery({ minWidth: 768 })
+
     return (
         <Container>
 
-            <ButtonText
-                title="voltar"
-                icon={FiChevronLeft}
-                iconSize={28}
-                onClick={() => navigate(-1)}
-                $fontWeight="400"
-                $fontSize="16px"
-            />
+          
+                <ButtonText
+                    title="voltar"
+                    icon={FiChevronLeft}
+                    iconSize={34}
+                    onClick={() => navigate(-1)}
+                    $fontWeight={isDesktop ? "700" : "400"}
+                />
+            
 
             <Form>
 
@@ -37,17 +41,23 @@ export function DishForm() {
                     label="Imagem do prato"
                     title={"Selecione imagem"}
                     icon={FiUpload}
+                    width={isDesktop ? "23%" : undefined}
                 />
 
                 <Input
                     label={"Nome"}
                     placeholder="Ex.: Salada Cesar"
                     type="text"
-                    bg="#0D161B" />
+                    bg="#0D161B"
+                    width={isDesktop ? "48%" : undefined} />
 
-                <Select label={"Categoria"} />
+                <Select
+                    label={"Categoria"}
+                    width={isDesktop ? "23%" : undefined} />
 
-                <IngredientInput label={"Ingredientes"} />
+                <IngredientInput
+                    label={"Ingredientes"}
+                    width={isDesktop ? "74%" : undefined} />
 
 
 
@@ -55,7 +65,8 @@ export function DishForm() {
                     label={"Preço"}
                     placeholder="R$ 00,00"
                     type="number"
-                    bg="#0D161B" />
+                    bg="#0D161B"
+                    width={isDesktop ? "23%" : undefined} />
 
                 <TextArea
                     label={"Descrição"}
@@ -66,13 +77,15 @@ export function DishForm() {
 
                 {isEdit ? (
                     <ButtonWrapper>
-                                   <Button
+                        <Button
                             title="Excluir prato"
                             background="#0D161B"
                             onClick={() => {
                                 // lógica para excluir prato
                                 console.log('Excluir prato');
                             }}
+
+                            $width={isDesktop ? "134px" : undefined}
                         />
                         <Button
                             title="Salvar alterações"
@@ -81,18 +94,23 @@ export function DishForm() {
                                 // lógica para salvar alterações
                                 console.log('Salvar alterações');
                             }}
+                            $width={isDesktop ? "172px" : undefined}
                         />
                     </ButtonWrapper>
-             
+
                 ) : (
-                    <Button
-                        title="Salvar"
-                        background="#AB4D55"
-                        onClick={() => {
-                            // lógica para criar prato
-                            console.log('Salvar prato');
-                        }}
-                    />
+                    <ButtonWrapper>
+                        <Button
+                            title="Salvar"
+                            background="#AB4D55"
+                            onClick={() => {
+                                // lógica para criar prato
+                                console.log('Salvar prato');
+                            }}
+                            $width={isDesktop ? "172px" : undefined}
+                        />
+                    </ButtonWrapper>
+
                 )}
 
             </Form>

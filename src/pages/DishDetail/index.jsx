@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive'
 import { Container, Content, Image, Info, ControlsButtonWrapper, TextWrapper } from './styles'
 import { ButtonText } from '../../components/ButtonText'
 import { Button } from '../../components/Button'
@@ -15,15 +16,19 @@ export function DishDetail() {
 
     const userType = "user"
 
+    const isDesktop = useMediaQuery({ minWidth: 768 })
+
     return (
         <Container>
-            <ButtonText
-                title="voltar"
-                icon={FiChevronLeft}
-                iconSize={34}
-                onClick={() => navigate(-1)}
-                $fontWeight="400"
-            />
+           
+                <ButtonText
+                    title="voltar"
+                    icon={FiChevronLeft}
+                    iconSize={34}
+                    onClick={() => navigate(-1)}
+                    $fontWeight={isDesktop ? "700" : "400"}
+                />
+           
 
 
             <Content>
@@ -55,12 +60,12 @@ export function DishDetail() {
                                 />
                                 <Button
                                     title="pedir ∙ R$ 25,00"
-                                    $width="200px"
-                                    $height="42px"
+                                    $width={isDesktop ? "162px" : "200px"}
+                                    $height={isDesktop ? "48px" : "42px"}
                                     $marginTop="0px"
-                                    $fontSize="10px"
+                                    $fontSize={isDesktop ? "14px" : "10px"}
                                     onClick={(e) => e.stopPropagation()}
-                                    image={Receipt}
+                                    image={isDesktop ? undefined : Receipt}
                                 />
                             </>
                         )}
@@ -68,10 +73,10 @@ export function DishDetail() {
                         {userType === "admin" && (
                             <Button
                                 title="Editar prato"
-                                $width="100%"
-                                $height="42px"
+                                $width={isDesktop ? "162px" : "200px"}
+                                $height={isDesktop ? "48px" : "42px"}
                                 $marginTop="0px"
-                                $fontSize="14px"
+                                $fontSize={isDesktop ? "14px" : "10px"}
                                 onClick={() => navigate("/edit-dish")}
                             />
                         )}
