@@ -15,4 +15,8 @@ export const Container = styled.div`
     font-size: 14px;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `
