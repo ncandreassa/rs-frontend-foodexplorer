@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: ${({ $width }) => $width || "100%"};
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 
- > span {
+  > span {
     font-size: 16px;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     font-family: "Roboto", serif;

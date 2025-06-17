@@ -2,7 +2,7 @@ import styled, { keyframes, css } from 'styled-components';
 import { FiPlus, FiX } from 'react-icons/fi';
 
 export const Container = styled.div`
-  width: 100%;
+  width: ${({ $width }) => $width || '100%'};
 
   > label {
     font-size: 16px;

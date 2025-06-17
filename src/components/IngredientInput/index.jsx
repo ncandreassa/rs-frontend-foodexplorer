@@ -10,7 +10,7 @@ import {
     AddInput,
 } from './styles';
 
-export function IngredientInput({ label }) {
+export function IngredientInput({ label, width}) {
 
     const [tags, setTags] = useState([]);
     const [editing, setEditing] = useState(false);
@@ -42,7 +42,7 @@ export function IngredientInput({ label }) {
     };
 
     return (
-        <Container>{
+        <Container $width={width}>{
             label && <label>{label}</label>}
 
             <TagInputWrapper>

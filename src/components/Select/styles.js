@@ -3,7 +3,7 @@ import { FiChevronDown } from "react-icons/fi";
 
 export const Container = styled.div`
   position: relative;
-  width: 100%;
+  width: ${({ $width }) => $width || "100%"};
 
   > label {
     font-size: 16px;

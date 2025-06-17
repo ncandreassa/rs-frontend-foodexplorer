@@ -1,8 +1,8 @@
 import { Container, StyledSelect, ChevronIcon } from './styles';
 
-export function Select({ label }) {
+export function Select({ label, width }) {
     return (
-        <Container>
+        <Container $width={width}>
             {label && <label>{label}</label>}
             <StyledSelect defaultValue="">
                 <option value="" disabled>Refeição</option>
@@ -11,6 +11,6 @@ export function Select({ label }) {
             </StyledSelect>
             <ChevronIcon />
         </Container>
-    )
+    );
 }
 
