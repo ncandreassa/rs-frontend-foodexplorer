@@ -10,20 +10,19 @@ import {
     AddInput,
 } from './styles';
 
-export function IngredientInput({ label, width}) {
+export function IngredientInput({ label, width, ingredients = [], setIngredients}) {
 
-    const [tags, setTags] = useState([]);
     const [editing, setEditing] = useState(false);
     const [value, setValue] = useState('');
     const inputRef = useRef(null);
 
     const addTag = () => {
         if (!value.trim()) return;
-        setTags([...tags, value.trim()]);
+        setIngredients([...ingredients, value.trim()]);
         setValue('');
     };
 
-    const removeTag = (idx) => setTags(tags.filter((_, i) => i !== idx));
+    const removeTag = (idx) => setIngredients(ingredients.filter((_, i) => i !== idx));
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -46,7 +45,7 @@ export function IngredientInput({ label, width}) {
             label && <label>{label}</label>}
 
             <TagInputWrapper>
-                {tags.map((t, idx) => (
+                {ingredients.map((t, idx) => (
                     <Tag key={idx}>
                         <TagLabel>{t}</TagLabel>
                         <RemoveIcon onClick={() => removeTag(idx)} />

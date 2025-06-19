@@ -90,7 +90,7 @@ export function DishDetail() {
                                     height={isDesktop ? "4.8rem" : "4.2rem"}
                                     marginTop="0px"
                                     fontSize={"1.4rem"}
-                                    onClick={() => navigate('/dish-form/edit')}
+                                    onClick={() => navigate(`/dish-form/edit/${data.id}`)}
                                 />
                             )}
                         </ControlsButtonWrapper>
