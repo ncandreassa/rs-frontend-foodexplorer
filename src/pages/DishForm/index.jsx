@@ -39,7 +39,7 @@ export function DishForm() {
                 <h1>{isEdit ? 'Editar prato' : 'Novo prato'}</h1>
                 <InputFile
                     label="Imagem do prato"
-                    title={"Selecione imagem"}
+                    title={isEdit ? "Selecione imagem para alterá-la" :"Selecione imagem"}
                     icon={FiUpload}
                     width={isDesktop ? "23%" : undefined}
                 />
