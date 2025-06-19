@@ -8,7 +8,7 @@ import { DishControls } from '../DishControls'
 import { useAuth } from '../../hooks/auth';
 
 
-export function DishCard({ image, title, price }) {
+export function DishCard({ dish }) {
   const { user } = useAuth();
   const navigate = useNavigate()
 
@@ -29,14 +29,14 @@ export function DishCard({ image, title, price }) {
         {isUser ? <FiHeart size={20} /> : <FiEdit2 size={20} />}
       </Icon>
 
-      <Image src={DishImg} alt={title} />
-      <Title>{title} &gt;</Title>
+      <Image src={DishImg} alt={dish.name} />
+      <Title>{dish.name} &gt;</Title>
 
       <Description>
-        Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
+        {dish.description}
       </Description>
 
-      <Price>{price}</Price>
+      <Price>R$ {dish.price}</Price>
 
       {isUser && (
         <BottomContent>

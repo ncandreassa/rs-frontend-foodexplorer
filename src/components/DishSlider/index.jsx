@@ -5,6 +5,7 @@ import { DishCard } from '../DishCard'
 import { SliderWrapper } from './styles'
 
 export function DishSlider({ title, items }) {
+    console.log(`${items.length} lista`)
     const isDesktop = useMediaQuery({ minWidth: 768 })
     const gap = isDesktop ? '2.8rem' : '1.6rem'
 
@@ -18,7 +19,7 @@ export function DishSlider({ title, items }) {
 
                 <Splide
                     options={{
-                        type: 'loop',
+                        type: 'slide',
                         perPage: isDesktop ? 4 : 2,
                         perMove: 1,
                         gap,
@@ -35,12 +36,7 @@ export function DishSlider({ title, items }) {
                 >
                     {items.map(item => (
                         <SplideSlide key={item.id}>
-                            <DishCard
-                                type="user"
-                                image={item.image}
-                                title={item.title}
-                                price={item.price}
-                            />
+                            <DishCard dish={item}/>
                         </SplideSlide>
                     ))}
                 </Splide>
