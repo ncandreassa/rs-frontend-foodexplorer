@@ -19,12 +19,12 @@ export function DishCard({ dish }) {
   function handleIconClick(e) {
     e.stopPropagation()
     if (!isUser) {
-      navigate('/dish-form/edit')
+      navigate(`/dish-form/edit/${dish.id}`)
     }
   }
 
   return (
-    <Container $isUser={isUser} onClick={() => navigate('/dish')}>
+    <Container $isUser={isUser} onClick={() => navigate(`/dish/${dish.id}`)}>
       <Icon onClick={handleIconClick}>
         {isUser ? <FiHeart size={20} /> : <FiEdit2 size={20} />}
       </Icon>

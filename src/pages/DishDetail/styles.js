@@ -18,6 +18,7 @@ export const Content = styled.div`
   @media ${({ theme }) => theme.MEDIA.sm} {
     flex-direction: row;
     text-align: start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 4.8rem; 
     margin: 8rem auto;
@@ -59,6 +60,10 @@ export const Info = styled.div`
       margin-top: 1.2rem; 
     }
   }
+
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    width: 50%;
+    }
 `;
 
 export const TextWrapper = styled.div`
