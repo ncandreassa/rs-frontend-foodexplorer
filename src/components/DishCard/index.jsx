@@ -5,11 +5,16 @@ import { Button } from '../Button'
 import { FiPlus, FiMinus, FiHeart, FiEdit2 } from 'react-icons/fi'
 import DishImg from '../../assets/Dish.png'
 import { DishControls } from '../DishControls'
+import { useAuth } from '../../hooks/auth';
 
-export function DishCard({ type = 'user', image, title, price }) {
-  const isUser = type === 'user'
+
+export function DishCard({ image, title, price }) {
+  const { user } = useAuth();
   const navigate = useNavigate()
+
   const isDesktop = useMediaQuery({ minWidth: 768 })
+
+  const isUser = user.role === 'user'
 
   function handleIconClick(e) {
     e.stopPropagation()

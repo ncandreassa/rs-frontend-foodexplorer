@@ -4,18 +4,19 @@ import { FiSearch } from 'react-icons/fi'
 import { Input } from '../Input'
 import { ButtonText } from '../ButtonText'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth';
 
-export function Menu({ onClose }) {
+export function Menu({ onClose, handleSignOut }) {
+    const { user } = useAuth();
 
     const navigate = useNavigate()
 
-    const userType = "admin"
 
     function handleNewDish() {
         navigate('/dish-form/create')
         onClose()
-      }
-    
+    }
+
     return (
         <Container>
             <Header>
@@ -30,13 +31,13 @@ export function Menu({ onClose }) {
                     placeholder="Busque por pratos ou ingredientes"
                     type="text"
                 />
-             <ButtonWrapper>
-                    {userType === "admin" && (
-                        <ButtonText title="Novo prato" underline onClick={handleNewDish}/>
+                <ButtonWrapper>
+                    {user.role === "admin" && (
+                        <ButtonText title="Novo prato" underline onClick={handleNewDish} />
                     )}
-                    <ButtonText title="Sair" underline />
+                    <ButtonText title="Sair" underline onClick={handleSignOut} />
                 </ButtonWrapper>
-                
+
             </Content>
         </Container>
     )

@@ -7,9 +7,12 @@ import Logo from '../../assets/Logo.png'
 import Menu from '../../assets/icons/Menu.png'
 import Receipt from '../../assets/icons/Receipt.svg'
 import SignOut from '../../assets/icons/SignOut.svg'
+import { useAuth } from '../../hooks/auth';
 
-export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
-  const userType = "user"
+export function MobileHeader({ receiptCount = 0, setIsMenuOpen}) {
+
+  const { user } = useAuth();
+
   const navigate = useNavigate()
 
   return (
@@ -21,11 +24,11 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
       <Div>
         <LogoWrapper onClick={() => navigate('/')}>
           <img src={Logo} alt="Logo" />
-          {userType === "admin" && <p>admin</p>}
+          {user.role === "admin" && <p>admin</p>}
         </LogoWrapper>
       </Div>
 
-      <Div style={{ visibility: userType === "admin" ? 'hidden' : 'visible' }}>
+      <Div style={{ visibility: user.role === "admin" ? 'hidden' : 'visible' }}>
         <NotificationWrapper>
           <img src={Receipt} alt="Receipt" />
           <Badge>{receiptCount}</Badge>
@@ -35,13 +38,14 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
   )
 }
 
-function DesktopHeader() {
+function DesktopHeader({handleSignOut}) {
 
-  const userType = "user"
+  const { user } = useAuth();
+
   const navigate = useNavigate()
 
   function handleOrdersClick() {
-    if (userType === "admin") {
+    if (user.role === "admin") {
       navigate("/dish-form/create")
     }
   }
@@ -50,7 +54,7 @@ function DesktopHeader() {
     <Container>
       <LogoWrapper onClick={() => navigate('/')}>
         <img src={Logo} alt="Logo" />
-        {userType === 'admin' && <p>admin</p>}
+        {user.role === 'admin' && <p>admin</p>}
       </LogoWrapper>
 
       <InputWrapper>
@@ -63,22 +67,21 @@ function DesktopHeader() {
       </InputWrapper>
 
       <Orders onClick={handleOrdersClick}>
-        {userType !== "admin" && <img src={Receipt} alt="Receipt" />}
-        <span>{userType === "admin" ? "Novo prato" : "Pedidos (0)"}</span>
+        {user.role !== "admin" && <img src={Receipt} alt="Receipt" />}
+        <span>{user.role === "admin" ? "Novo prato" : "Pedidos (0)"}</span>
       </Orders>
 
 
-      <img src={SignOut} alt="SignOut" />
+      <img src={SignOut} alt="SignOut" onClick={handleSignOut}/>
 
     </Container>
   )
 }
 
-export function Header({ receiptCount = 0, setIsMenuOpen }) {
+export function Header({ receiptCount = 0, setIsMenuOpen, handleSignOut}) {
   const isDesktop = useMediaQuery({ minWidth: 768 })
-  const userType = 'user'
 
   return isDesktop
-    ? <DesktopHeader userType={userType} />
-    : <MobileHeader userType={userType} receiptCount={receiptCount} setIsMenuOpen={setIsMenuOpen} />
+    ? <DesktopHeader handleSignOut={handleSignOut} />
+    : <MobileHeader receiptCount={receiptCount} setIsMenuOpen={setIsMenuOpen} />
 }

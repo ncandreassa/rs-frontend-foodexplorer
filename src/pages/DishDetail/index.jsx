@@ -8,13 +8,14 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 import DishImg from '../../assets/Dish.png'
 import Receipt from '../../assets/icons/Receipt.png'
+import { useAuth } from '../../hooks/auth';
 
 export function DishDetail() {
+    const { user } = useAuth();
+
     const navigate = useNavigate()
 
     const tags = ['alface', 'cebola', 'pão naan', 'pepino', 'rabanete', 'tomate']
-
-    const userType = "user"
 
     const isDesktop = useMediaQuery({ minWidth: 768 })
 
@@ -48,7 +49,7 @@ export function DishDetail() {
                     <Tags items={tags} />
 
                     <ControlsButtonWrapper>
-                        {userType === "user" && (
+                        {user.role === "user" && (
                             <>
                                 <DishControls
                                     quantity={1}
@@ -70,7 +71,7 @@ export function DishDetail() {
                             </>
                         )}
 
-                        {userType === "admin" && (
+                        {user.role === "admin" && (
                             <Button
                                 title="Editar prato"
                                 width={isDesktop ? "16.2rem" : "31.6rem"}

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './styles/global'
 import 'keen-slider/keen-slider.min.css'
 
-// import { AuthProvider } from './hooks/auth'
+import { AuthProvider } from './hooks/auth'
 
 import theme from './styles/theme'
 
@@ -14,9 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-       {/* <AuthProvider> */}
+      <AuthProvider>
         <Routes />
-      {/* </AuthProvider>  */}
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 )
