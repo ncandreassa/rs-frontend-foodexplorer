@@ -22,7 +22,6 @@ export function DishForm() {
     const [ingredients, setIngredients] = useState([]);
 
     const [image, setImage] = useState(null)
-    const imageUrl = `${api.defaults.baseURL}/files/${image}`
     const [imageFile, setImageFile] = useState(null);
 
     const params = useParams();

@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Container, Image, Title, Price, Icon, Description, BottomContent } from './styles'
 import { Button } from '../Button'
 import { FiPlus, FiMinus, FiHeart, FiEdit2 } from 'react-icons/fi'
-import DishImg from '../../assets/Dish.png'
+import DishPlaceholder from '../../assets/DishPlaceholder.png'
 import { DishControls } from '../DishControls'
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api'
@@ -30,7 +30,7 @@ export function DishCard({ dish }) {
         {isUser ? <FiHeart size={20} /> : <FiEdit2 size={20} />}
       </Icon>
 
-      <Image src={`${api.defaults.baseURL}/files/${dish.image}`} alt={dish.name} />
+      <Image src={dish.image ? `${api.defaults.baseURL}/files/${dish.image}` : DishPlaceholder} alt={dish.name} />
       <Title>{dish.name} &gt;</Title>
 
       <Description>

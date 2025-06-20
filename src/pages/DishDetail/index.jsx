@@ -8,7 +8,7 @@ import { Button } from '../../components/Button'
 import { Tags } from '../../components/Tags'
 import { DishControls } from '../../components/DishControls'
 import { FiChevronLeft } from 'react-icons/fi'
-import DishImg from '../../assets/Dish.png'
+import DishPlaceholder from '../../assets/DishPlaceholder.png'
 import Receipt from '../../assets/icons/Receipt.png'
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api'
@@ -45,7 +45,7 @@ export function DishDetail() {
 
             {data &&
                 <Content>
-                    <Image src={`${api.defaults.baseURL}/files/${data.image}`} alt={data.name} />
+                    <Image src={data.image ? `${api.defaults.baseURL}/files/${data.image}` : DishPlaceholder} alt={data.name} />
 
                     <Info>
 
