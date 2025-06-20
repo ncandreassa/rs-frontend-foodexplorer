@@ -45,7 +45,7 @@ export function DishDetail() {
 
             {data &&
                 <Content>
-                    <Image src={DishImg} alt={"Dish"} />
+                    <Image src={`${api.defaults.baseURL}/files/${data.image}`} alt={data.name} />
 
                     <Info>
 
@@ -72,7 +72,10 @@ export function DishDetail() {
                                         iconSize={28}
                                     />
                                     <Button
-                                        title="pedir ∙ R$ 25,00"
+                                        title={`pedir ∙ ${data.price.toLocaleString("pt-BR", {
+                                            style: "currency",
+                                            currency: "BRL",
+                                        })}`}
                                         width={isDesktop ? "16.2rem" : "20rem"}
                                         height={isDesktop ? "4.8rem" : "4.2rem"}
                                         marginTop="0px"

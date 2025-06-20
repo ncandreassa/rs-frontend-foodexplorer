@@ -6,6 +6,7 @@ import { FiPlus, FiMinus, FiHeart, FiEdit2 } from 'react-icons/fi'
 import DishImg from '../../assets/Dish.png'
 import { DishControls } from '../DishControls'
 import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api'
 
 
 export function DishCard({ dish }) {
@@ -29,14 +30,17 @@ export function DishCard({ dish }) {
         {isUser ? <FiHeart size={20} /> : <FiEdit2 size={20} />}
       </Icon>
 
-      <Image src={DishImg} alt={dish.name} />
+      <Image src={`${api.defaults.baseURL}/files/${dish.image}`} alt={dish.name} />
       <Title>{dish.name} &gt;</Title>
 
       <Description>
         {dish.description}
       </Description>
 
-      <Price>R$ {dish.price}</Price>
+      <Price>{dish.price.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}</Price>
 
       {isUser && (
         <BottomContent>
