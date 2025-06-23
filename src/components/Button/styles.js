@@ -21,6 +21,12 @@ export const Container = styled.button`
   gap: 0.8rem;
   cursor: pointer;
 
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
   svg {
     flex-shrink: 0;
   }

@@ -65,7 +65,7 @@ function DesktopHeader({ handleSignOut, receiptCount = 0, handleSearch }) {
     <Container>
       <LogoWrapper onClick={() => navigate('/')}>
         <img src={Logo} alt="Logo" />
-        {user.role === 'admin' && <p>admin</p>}
+        {user && user.role === 'admin' && <p>admin</p>}
       </LogoWrapper>
 
       <InputWrapper>
@@ -80,8 +80,8 @@ function DesktopHeader({ handleSignOut, receiptCount = 0, handleSearch }) {
       </InputWrapper>
 
       <Orders onClick={handleOrdersClick}>
-        {user.role !== "admin" && <img src={Receipt} alt="Receipt" />}
-        <span>{user.role === "admin" ? "Novo prato" : `Pedidos (${receiptCount})`}</span>
+        {user && user.role !== "admin" && <img src={Receipt} alt="Receipt" />}
+        <span>{user && user.role === "admin" ? "Novo prato" : `Pedidos (${receiptCount})`}</span>
       </Orders>
 
 
