@@ -13,6 +13,8 @@ export const Container = styled.div`
 
     button {
       background: none;
+      display: flex;
+      align-items: center;
       border: none;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
       cursor: pointer;

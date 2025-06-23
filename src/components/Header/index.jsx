@@ -8,8 +8,9 @@ import Menu from '../../assets/icons/Menu.png'
 import Receipt from '../../assets/icons/Receipt.svg'
 import SignOut from '../../assets/icons/SignOut.svg'
 import { useAuth } from '../../hooks/auth';
+import { useOrders } from '../../hooks/orders';
 
-export function MobileHeader({ receiptCount = 0, setIsMenuOpen}) {
+export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
 
   const { user } = useAuth();
 
@@ -38,16 +39,23 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen}) {
   )
 }
 
-function DesktopHeader({handleSignOut}) {
+function DesktopHeader({ handleSignOut, receiptCount = 0 }) {
 
   const { user } = useAuth();
 
   const navigate = useNavigate()
 
+  const { clearOrders } = useOrders();
+
   function handleOrdersClick() {
     if (user.role === "admin") {
       navigate("/dish-form/create")
     }
+  }
+
+  function handleSignOutWithCleanup() {
+    clearOrders();
+    handleSignOut();
   }
 
   return (
@@ -68,20 +76,25 @@ function DesktopHeader({handleSignOut}) {
 
       <Orders onClick={handleOrdersClick}>
         {user.role !== "admin" && <img src={Receipt} alt="Receipt" />}
-        <span>{user.role === "admin" ? "Novo prato" : "Pedidos (0)"}</span>
+        <span>{user.role === "admin" ? "Novo prato" : `Pedidos (${receiptCount})`}</span>
       </Orders>
 
 
-      <img src={SignOut} alt="SignOut" onClick={handleSignOut}/>
+      <img src={SignOut} alt="SignOut" onClick={handleSignOutWithCleanup} />
 
     </Container>
   )
 }
 
-export function Header({ receiptCount = 0, setIsMenuOpen, handleSignOut}) {
+export function Header({ setIsMenuOpen, handleSignOut }) {
   const isDesktop = useMediaQuery({ minWidth: 768 })
 
+
+  const { getTotalQuantity } = useOrders();
+  const totalQuantity = getTotalQuantity();
+
+
   return isDesktop
-    ? <DesktopHeader handleSignOut={handleSignOut} />
-    : <MobileHeader receiptCount={receiptCount} setIsMenuOpen={setIsMenuOpen} />
+    ? <DesktopHeader handleSignOut={handleSignOut} receiptCount={totalQuantity} />
+    : <MobileHeader receiptCount={totalQuantity} setIsMenuOpen={setIsMenuOpen} />
 }

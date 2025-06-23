@@ -17,12 +17,17 @@ export const SliderWrapper = styled.div`
 
   .slider-container {
     position: relative;
+    overflow: visible; 
   }
 
   .splide__slide {
     opacity: 1;
-    transform: none;
-    transition: none;
+    padding: 1rem;
+    transition: transform 0.2s ease, border 0.2s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 
   .custom-arrow {

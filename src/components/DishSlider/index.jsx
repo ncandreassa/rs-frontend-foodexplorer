@@ -14,9 +14,6 @@ export function DishSlider({ title, items }) {
             <h1>{title}</h1>
 
             <div className="slider-container">
-                <div className="fade-left" />
-                <div className="fade-right" />
-
                 <Splide
                     options={{
                         type: 'slide',

@@ -5,16 +5,25 @@ import { Input } from '../Input'
 import { ButtonText } from '../ButtonText'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth';
+import { useOrders } from '../../hooks/orders';
 
 export function Menu({ onClose, handleSignOut }) {
     const { user } = useAuth();
 
     const navigate = useNavigate()
 
+    const { clearOrders } = useOrders();
+
 
     function handleNewDish() {
         navigate('/dish-form/create')
         onClose()
+    }
+
+
+    function handleSignOutWithCleanup() {
+        clearOrders();
+        handleSignOut();
     }
 
     return (
@@ -35,7 +44,7 @@ export function Menu({ onClose, handleSignOut }) {
                     {user.role === "admin" && (
                         <ButtonText title="Novo prato" underline onClick={handleNewDish} />
                     )}
-                    <ButtonText title="Sair" underline onClick={handleSignOut} />
+                    <ButtonText title="Sair" underline onClick={handleSignOutWithCleanup} />
                 </ButtonWrapper>
 
             </Content>

@@ -11,10 +11,13 @@ import { FiChevronLeft } from 'react-icons/fi'
 import DishPlaceholder from '../../assets/DishPlaceholder.png'
 import Receipt from '../../assets/icons/Receipt.png'
 import { useAuth } from '../../hooks/auth';
+import { useOrders } from '../../hooks/orders';
 import { api } from '../../services/api'
 
 export function DishDetail() {
     const [data, setData] = useState();
+
+    const [quantity, setQuantity] = useState(1);
 
     const params = useParams();
 
@@ -24,13 +27,69 @@ export function DishDetail() {
 
     const isDesktop = useMediaQuery({ minWidth: 768 })
 
+    const { addOrUpdateOrder, getOrder } = useOrders();
+
     useEffect(() => {
         async function fetchDish() {
-            const response = await api.get(`/dishes/${params.id}`)
-            setData(response.data)
+            const response = await api.get(`/dishes/${params.id}`);
+            const dish = response.data;
+            setData(dish);
+
+            const existing = getOrder(dish.id);
+            setQuantity(existing ? existing.quantity : 1);
         }
-        fetchDish()
-    }, [])
+
+        fetchDish();
+    }, []);
+
+    const handleIncrement = () => {
+        setQuantity(prev => prev + 1);
+    };
+
+    const handleDecrement = () => {
+        setQuantity(prev => (prev > 0 ? prev - 1 : 0));
+    };
+
+    const handleAddToCart = () => {
+        const item = {
+            id: data.id,
+            name: data.name,
+            price: data.price,
+            image: data.image,
+            quantity: quantity
+        };
+
+        addOrUpdateOrder(item);
+
+        if (quantity === 0) {
+            alert(`"${data.name}" removido do carrinho.`);
+        } else {
+            alert(`No carrinho agora tem ${quantity} unidade(s) de ${data.name}`);
+        }
+    };
+
+
+
+    const getButtonTitle = () => {
+
+        const isInCart = !!getOrder(data?.id);
+        console.log(data)
+
+        const price = (data.price * quantity).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+
+        if (quantity === 0) {
+            return "Remover do carrinho";
+        }
+
+        if (isInCart) {
+            return `Atualizar carrinho ∙ ${price}`;
+        }
+
+        return `Pedir ∙ ${price}`;
+    };
 
     return (
         <Container>
@@ -64,23 +123,20 @@ export function DishDetail() {
                             {user.role === "user" && (
                                 <>
                                     <DishControls
-                                        quantity={1}
-                                        onIncrement={() => { }}
-                                        onDecrement={() => { }}
+                                        quantity={quantity}
+                                        onIncrement={handleIncrement}
+                                        onDecrement={handleDecrement}
                                         fontSize="2.2rem"
                                         fontWeight="700"
                                         iconSize={28}
                                     />
                                     <Button
-                                        title={`pedir ∙ ${data.price.toLocaleString("pt-BR", {
-                                            style: "currency",
-                                            currency: "BRL",
-                                        })}`}
+                                        title={getButtonTitle()}
                                         width={isDesktop ? "16.2rem" : "20rem"}
                                         height={isDesktop ? "4.8rem" : "4.2rem"}
                                         marginTop="0px"
                                         fontSize={isDesktop ? "1.4rem" : "1rem"}
-                                        onClick={(e) => e.stopPropagation()}
+                                        onClick={handleAddToCart}
                                         image={isDesktop ? undefined : Receipt}
                                     />
                                 </>

@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
-  border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
+  border: 1px solid
+    ${({ theme, $isInCart }) =>
+      $isInCart ? theme.COLORS.LIGHT_700 : theme.COLORS.DARK_300};
   border-radius: 0.8rem;
   padding: 1.6rem;
   width: 21rem;
@@ -17,8 +19,9 @@ export const Container = styled.div`
   justify-content: ${({ isUser }) => (isUser ? "flex-start" : "center")};
   cursor: pointer;
 
+
   @media ${({ theme }) => theme.MEDIA.sm} {
-    width: 30.4rem;
+    width: 31rem;
     height: 46.2rem;
     gap: 1.6rem;
     padding: 2.4rem;
@@ -52,7 +55,7 @@ export const Title = styled.h3`
 
   @media ${({ theme }) => theme.MEDIA.sm} {
     font-size: 2.4rem;
-  }
+ }
 `;
 
 export const Description = styled.p`
