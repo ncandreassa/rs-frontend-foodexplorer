@@ -6,13 +6,16 @@ import { ButtonText } from '../ButtonText'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth';
 import { useOrders } from '../../hooks/orders';
+import { useDishes } from '../../hooks/dishes';
 
-export function Menu({ onClose, handleSignOut }) {
+export function Menu({ onClose, handleSignOut, handleSearch }) {
     const { user } = useAuth();
 
     const navigate = useNavigate()
 
     const { clearOrders } = useOrders();
+
+    const { query } = useDishes();
 
 
     function handleNewDish() {
@@ -38,7 +41,9 @@ export function Menu({ onClose, handleSignOut }) {
                 <Input
                     icon={FiSearch}
                     placeholder="Busque por pratos ou ingredientes"
-                    type="text"
+                    type="search"
+                    onChange={(e) => handleSearch(e.target.value)}
+                    value={query}
                 />
                 <ButtonWrapper>
                     {user.role === "admin" && (

@@ -6,6 +6,7 @@ import 'keen-slider/keen-slider.min.css'
 
 import { AuthProvider } from './hooks/auth'
 import { OrdersProvider } from './hooks/orders'
+import { DishesProvider } from './hooks/dishes'
 
 import theme from './styles/theme'
 
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <GlobalStyles />
       <AuthProvider>
         <OrdersProvider>
-          <Routes />
+          <DishesProvider>
+            <Routes />
+          </DishesProvider>
         </OrdersProvider>
       </AuthProvider>
     </ThemeProvider>

@@ -5,7 +5,6 @@ import { DishCard } from '../DishCard'
 import { SliderWrapper } from './styles'
 
 export function DishSlider({ title, items }) {
-    console.log(`${items.length} lista`)
     const isDesktop = useMediaQuery({ minWidth: 768 })
     const gap = isDesktop ? '2.8rem' : '1.6rem'
 

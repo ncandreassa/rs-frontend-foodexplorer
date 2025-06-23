@@ -1,28 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Container, Main, BannerWrapper } from './styles'
 import { Banner } from '../../components/Banner'
 import { DishSlider } from '../../components/DishSlider'
-import { api } from '../../services/api'
+import { useDishes } from '../../hooks/dishes';
 
 export function Home() {
 
-  const [dishes, setDishes] = useState([]);
+  const { dishes, fetchDishes, query } = useDishes();
 
   useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(`/dishes`)
-      setDishes(response.data)
-    }
-
+    if (query.length > 0)
+      return
     fetchDishes()
-
-    
   }, [])
 
   const meals = dishes.filter(dish => dish.category === 'Refeição');
   const deserts = dishes.filter(dish => dish.category === 'Sobremesa');
   const drinks = dishes.filter(dish => dish.category === 'Bebida');
-  
+
 
   return (
     <Container>
@@ -30,10 +25,9 @@ export function Home() {
         <BannerWrapper>
           <Banner />
         </BannerWrapper>
-
-        <DishSlider title="Refeições" items={meals} />
-        <DishSlider title="Sobremesas" items={deserts} />
-        <DishSlider title="Bebidas" items={drinks} />
+        {meals.length > 0 && <DishSlider title="Refeições" items={meals} />}
+        {deserts.length > 0 && <DishSlider title="Sobremesas" items={deserts} />}
+        {drinks.length > 0 && <DishSlider title="Bebidas" items={drinks} />}
       </Main>
     </Container>
   )

@@ -9,6 +9,7 @@ import Receipt from '../../assets/icons/Receipt.svg'
 import SignOut from '../../assets/icons/SignOut.svg'
 import { useAuth } from '../../hooks/auth';
 import { useOrders } from '../../hooks/orders';
+import { useDishes } from '../../hooks/dishes';
 
 export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
 
@@ -39,9 +40,11 @@ export function MobileHeader({ receiptCount = 0, setIsMenuOpen }) {
   )
 }
 
-function DesktopHeader({ handleSignOut, receiptCount = 0 }) {
+function DesktopHeader({ handleSignOut, receiptCount = 0, handleSearch }) {
 
   const { user } = useAuth();
+
+  const { query } = useDishes();
 
   const navigate = useNavigate()
 
@@ -69,8 +72,10 @@ function DesktopHeader({ handleSignOut, receiptCount = 0 }) {
         <Input
           icon={FiSearch}
           placeholder="Busque por pratos ou ingredientes"
-          type="text"
+          type="search"
           marginLeftSvg="10rem"
+          onChange={(e) => handleSearch(e.target.value)}
+          value={query}
         />
       </InputWrapper>
 
@@ -86,15 +91,14 @@ function DesktopHeader({ handleSignOut, receiptCount = 0 }) {
   )
 }
 
-export function Header({ setIsMenuOpen, handleSignOut }) {
+export function Header({ setIsMenuOpen, handleSignOut, handleSearch }) {
   const isDesktop = useMediaQuery({ minWidth: 768 })
-
 
   const { getTotalQuantity } = useOrders();
   const totalQuantity = getTotalQuantity();
 
 
   return isDesktop
-    ? <DesktopHeader handleSignOut={handleSignOut} receiptCount={totalQuantity} />
+    ? <DesktopHeader handleSignOut={handleSignOut} receiptCount={totalQuantity} handleSearch={handleSearch} />
     : <MobileHeader receiptCount={totalQuantity} setIsMenuOpen={setIsMenuOpen} />
 }
