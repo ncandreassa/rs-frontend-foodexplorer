@@ -7,9 +7,12 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
 
     const [data, setData] = useState({})
+    const [loading, setLoading] = useState(false)
 
     async function signIn({ email, password }) {
         try {
+            setLoading(true)
+
             const response = await api.post("/sessions", { email, password });
             const { user, token } = response.data;
 
@@ -20,12 +23,15 @@ function AuthProvider({ children }) {
 
             setData({ user, token })
 
+            setLoading(false)
+
         } catch (error) {
             if (error.response) {
                 alert(error.response.data.message)
             } else {
                 alert("Não foi possível entrar.")
             }
+            setLoading(false)
         }
 
     }
@@ -37,9 +43,10 @@ function AuthProvider({ children }) {
         setData({});
     }
 
-   
+
 
     useEffect(() => {
+        setLoading(true)
         const token = localStorage.getItem("@foodexplorer:token");
         const user = localStorage.getItem("@foodexplorer:user");
 
@@ -51,6 +58,7 @@ function AuthProvider({ children }) {
                 user: JSON.parse(user)
             })
         }
+        setLoading(false)
     }, []);
 
     return (
@@ -58,6 +66,7 @@ function AuthProvider({ children }) {
             signIn,
             user: data.user,
             signOut,
+            loading,
         }}>
             {children}
         </AuthContext.Provider>
