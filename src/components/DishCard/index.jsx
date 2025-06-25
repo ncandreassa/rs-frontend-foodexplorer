@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { Container, Image, Title, Price, Icon, Description, BottomContent } from './styles'
 import { Button } from '../Button'
-import { FiPlus, FiMinus, FiHeart, FiEdit2 } from 'react-icons/fi'
+import { FiHeart, FiEdit2 } from 'react-icons/fi'
 import DishPlaceholder from '../../assets/DishPlaceholder.png'
 import { DishControls } from '../DishControls'
 import { useAuth } from '../../hooks/auth';

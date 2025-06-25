@@ -16,4 +16,10 @@ export const Container = styled.button`
 
   border-bottom: ${({ underline, theme }) =>
     underline ? `1px solid ${theme.COLORS.DARK_1000}` : "none"};
+
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
