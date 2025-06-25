@@ -5,8 +5,8 @@ import { DishCard } from '../DishCard'
 import { SliderWrapper } from './styles'
 
 export function DishSlider({ title, items }) {
-    const isDesktop = useMediaQuery({ minWidth: 768 })
-    const gap = isDesktop ? '2.8rem' : '1.6rem'
+    const isDesktop = useMediaQuery({ minWidth: 1024 })
+    const gap = isDesktop ? '2.4rem' : '1.4rem'
 
     return (
         <SliderWrapper>
@@ -16,7 +16,18 @@ export function DishSlider({ title, items }) {
                 <Splide
                     options={{
                         type: 'slide',
-                        perPage: isDesktop ? 4 : 2,
+                        perPage: 4,
+                        breakpoints: {
+                            768: {
+                                perPage: 1,
+                            },
+                            1024: {
+                                perPage: 2,
+                            },
+                            1440: {
+                                perPage: 3,
+                            }
+                        },
                         perMove: 1,
                         gap,
                         arrows: isDesktop,
@@ -32,7 +43,7 @@ export function DishSlider({ title, items }) {
                 >
                     {items.map(item => (
                         <SplideSlide key={item.id}>
-                            <DishCard dish={item}/>
+                            <DishCard dish={item} />
                         </SplideSlide>
                     ))}
                 </Splide>

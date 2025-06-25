@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 12rem;
   background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
   margin-top: 5.2rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   position: relative;
   border-radius: 0.3rem;
 
@@ -28,7 +28,6 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.MEDIA.sm} {
     height: 26rem;
     width: 100%;
-    margin-left: 0;
     margin-top: 13rem;
 
     align-items: center;
@@ -48,6 +47,10 @@ export const Container = styled.div`
       left: -7.2rem;
     }
   }
+
+  @media ${({ theme }) => theme.MEDIA.md} {
+    margin-left: 0; 
+  }
 `;
 
 export const TextContent = styled.div`
@@ -66,7 +69,7 @@ export const TextContent = styled.div`
     font-family: "Poppins", sans-serif;
   }
 
-  @media ${({ theme }) => theme.MEDIA.sm}  {
+  @media ${({ theme }) => theme.MEDIA.sm} {
     width: 50%;
 
     > h1 {

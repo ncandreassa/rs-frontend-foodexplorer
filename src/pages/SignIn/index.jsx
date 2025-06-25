@@ -22,9 +22,6 @@ export function SignIn() {
 
   }
 
-  console.log(loading)
-
-
   return (
     <Container>
 

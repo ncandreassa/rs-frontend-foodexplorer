@@ -10,12 +10,28 @@ export const Container = styled.header`
 
   @media ${({ theme }) => theme.MEDIA.sm} {
     align-items: center;
+    padding: 0 3rem;
+    gap: 1rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.md} {
+    padding: 0 6rem;
+    gap: 1rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.lg} {
     padding: 0 12.3rem;
   }
 
   > img {
     height: 2.6rem;
     cursor: pointer;
+    margin-top: 0.8rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -52,6 +68,7 @@ export const LogoWrapper = styled.div`
     flex-direction: column;
     gap: 0;
     align-items: flex-end;
+    margin-top: 0.8rem;
   }
 `;
 
@@ -82,11 +99,20 @@ export const Badge = styled.span`
 `;
 
 export const InputWrapper = styled.div`
-  width: 58.1rem;
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    width: 32rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.md} {
+    width: 38rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.lg} {
+    width: 52rem;
+  }
 `;
 
 export const Orders = styled.div`
-  width: 21.6rem;
   height: 4.8rem;
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
   border-radius: 0.5rem;
@@ -95,11 +121,20 @@ export const Orders = styled.div`
   justify-content: center;
   gap: 0.8rem;
   cursor: pointer;
+  margin-top: 0.8rem;
 
   transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.sm} {
+    width: 14rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.lg} {
+    width: 21.6rem;
   }
 
   > span {

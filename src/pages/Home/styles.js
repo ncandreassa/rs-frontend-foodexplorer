@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
-    padding: 0 10rem; 
+  @media ${({ theme }) => theme.MEDIA.md} {
+    padding: 0 8rem;
   }
+
 `;
 
 export const Main = styled.main`
@@ -13,6 +14,7 @@ export const Main = styled.main`
 
   @media ${({ theme }) => theme.MEDIA.sm} {
     margin-bottom: 6rem; 
+    padding: 4rem; 
   }
 `;
 

@@ -73,7 +73,6 @@ function DesktopHeader({ handleSignOut, receiptCount = 0, handleSearch }) {
           icon={FiSearch}
           placeholder="Busque por pratos ou ingredientes"
           type="search"
-          marginLeftSvg="10rem"
           onChange={(e) => handleSearch(e.target.value)}
           value={query}
         />
