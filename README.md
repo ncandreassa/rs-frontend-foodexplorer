@@ -4,7 +4,7 @@ Este é o front-end da aplicação **Food Explorer**, uma interface moderna e re
 
 ## 🚀 Deploy
 
-- 🔗 [Acesse o Frontend via Netlify]()
+- 🔗 [Acesse o Frontend via Netlify](https://nathalia-foodexplorer.netlify.app/)
 
 ## 🧰 Tecnologias Utilizadas
 
