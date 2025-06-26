@@ -11,7 +11,7 @@ import { Loading } from '../../components/Loading'
 
 export function SignIn() {
 
-  const { signIn, loading } = useAuth();
+  const { signIn, loading, user } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,11 +21,11 @@ export function SignIn() {
     signIn({ email, password })
 
   }
-
+  
   return (
     <Container>
 
-      {loading ? <Loading /> : <>
+      {loading && !user ? <Loading /> : <>
 
         <LogoWrapper>
           <img src={Logo} alt="Logo" />
