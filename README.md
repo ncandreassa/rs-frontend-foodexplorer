@@ -1,12 +1,54 @@
-# React + Vite
+# 🍽️ Food Explorer - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o front-end da aplicação **Food Explorer**, uma interface moderna e responsiva feita com **React** e **Vite**. Permite aos usuários visualizar pratos e ao administrador gerenciar o cardápio de um restaurante fictício.
 
-Currently, two official plugins are available:
+## 🚀 Deploy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔗 [Acesse o Frontend via Netlify]()
 
-## Expanding the ESLint configuration
+## 🧰 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Styled-components
+- Axios
+
+## 👤 Funcionalidades por Persona
+
+### Usuário
+- Ver todos os pratos
+- Pesquisar por nome ou ingrediente
+- Visualizar detalhes de um prato
+- Interface responsiva (mobile e desktop)
+
+### Admin
+- Criar novo prato
+- Editar prato
+- Deletar prato
+- Atualizar imagem do prato
+- Gerenciar ingredientes e categoria
+
+## ▶️ Como Rodar Localmente
+
+### 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/ncandreassa/rs-frontend-foodexplorer.git
+```
+
+### 2️⃣ Acesse o diretório do projeto
+
+```bash
+cd rs-frontend-foodexplorer
+```
+
+### 3️⃣ Instale as dependências
+
+```bash
+npm install
+```
+### 4️⃣ Inicie a aplicação
+
+```bash
+npm run dev
+```
