@@ -10,6 +10,10 @@ export const Container = styled.div`
   gap: 3.2rem;
 
   @media ${({ theme }) => theme.MEDIA.sm} {
+    padding: 10rem;
+  }
+
+  @media ${({ theme }) => theme.MEDIA.md} {
     flex-direction: row;
     padding: 0 10rem;
     gap: 0;
@@ -24,7 +28,7 @@ export const LogoWrapper = styled.div`
     height: 4.8rem;
   }
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -37,7 +41,7 @@ export const FormWrapper = styled.div`
   width: 100%;
   height: 70%;
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     width: 47.6rem;
     height: 62.1rem;
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
@@ -48,7 +52,7 @@ export const FormWrapper = styled.div`
   > h1 {
     display: none;
 
-    @media ${({ theme }) => theme.MEDIA.sm} {
+    @media ${({ theme }) => theme.MEDIA.md} {
       display: block;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
       font-size: 3.2rem;
@@ -64,7 +68,7 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 3.2rem;
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     gap: 2rem;
   }
 
@@ -73,7 +77,7 @@ export const Form = styled.form`
     text-align: center;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-    @media ${({ theme }) => theme.MEDIA.sm} {
+    @media ${({ theme }) => theme.MEDIA.md} {
       margin-top: 1rem;
     }
   }

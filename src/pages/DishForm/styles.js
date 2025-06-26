@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     padding: 4rem 12.2rem;
   }
 `;
@@ -21,7 +21,7 @@ export const Form = styled.form`
     width: 100%;
   }
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     margin: 2rem auto;
     flex-direction: row;
     flex-wrap: wrap;
@@ -34,7 +34,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   gap: 3.2rem;
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     width: 100%;
     justify-content: flex-end;
   }

@@ -22,7 +22,7 @@ export const Container = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.MEDIA.sm} {
+  @media ${({ theme }) => theme.MEDIA.md} {
     justify-content: flex-start;
   }
 `;

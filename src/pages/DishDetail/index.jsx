@@ -73,7 +73,6 @@ export function DishDetail() {
     const getButtonTitle = () => {
 
         const isInCart = !!getOrder(data?.id);
-        console.log(data)
 
         const price = (data.price * quantity).toLocaleString("pt-BR", {
             style: "currency",

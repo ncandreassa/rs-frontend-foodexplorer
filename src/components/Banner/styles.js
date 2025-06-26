@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 12rem;
   background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
   margin-top: 5.2rem;
-  /* margin-left: 2rem; */
+  margin-left: 2rem; 
   position: relative;
   border-radius: 0.3rem;
 
@@ -29,6 +29,7 @@ export const Container = styled.div`
     height: 26rem;
     width: 100%;
     margin-top: 13rem;
+    margin-left: 0; 
 
     align-items: center;
     border-radius: 0.8rem;

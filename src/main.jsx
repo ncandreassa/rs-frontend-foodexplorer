@@ -5,8 +5,6 @@ import GlobalStyles from './styles/global'
 import 'keen-slider/keen-slider.min.css'
 
 import { AuthProvider } from './hooks/auth'
-import { OrdersProvider } from './hooks/orders'
-import { DishesProvider } from './hooks/dishes'
 
 import theme from './styles/theme'
 
@@ -17,11 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <AuthProvider>
-        <OrdersProvider>
-          <DishesProvider>
             <Routes />
-          </DishesProvider>
-        </OrdersProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,

@@ -32,7 +32,7 @@ export function DishForm() {
 
     const isEdit = mode === 'edit';
 
-    const isDesktop = useMediaQuery({ minWidth: 768 })
+    const isDesktop = useMediaQuery({ minWidth: 1024 })
 
     useEffect(() => {
         async function fetchDish() {

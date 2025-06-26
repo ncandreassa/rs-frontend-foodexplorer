@@ -17,7 +17,7 @@ export function DishCard({ dish }) {
 
   const isDesktop = useMediaQuery({ minWidth: 768 })
 
-  const isUser = user.role === 'user'
+  const isUser = user && user.role === 'user'
 
   const { getOrder, addOrUpdateOrder } = useOrders();
 
