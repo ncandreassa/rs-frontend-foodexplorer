@@ -55,8 +55,10 @@ npm run dev
 ## 🔮 Implementações Futuras
 
 - Página de favoritos para o usuário  
-- Página de carrinho e checkout para o usuário  
+- Página de carrinho e checkout para o usuário
+- Página de controle de status de cada pedido para o admin
 - Melhorar UI/UX e responsividade
+- Implementar Light Mode
 
 ## 📸 Previews
 
